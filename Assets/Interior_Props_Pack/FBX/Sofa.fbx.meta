@@ -1,0 +1,117 @@
+fileFormatVersion: 2
+guid: a6c99da22a8297e4daa5f11fdf008eb1
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Arms
+    100002: Back
+    100004: Cushion_A
+    100006: Cushion_B
+    100008: Cushion_C
+    100010: Cushion_Left
+    100012: Cushion_Right
+    100014: Feet
+    100016: Front
+    100018: Seat_Cushion_Left
+    100020: Seat_Cushion_Right
+    100022: //RootNode
+    400000: Arms
+    400002: Back
+    400004: Cushion_A
+    400006: Cushion_B
+    400008: Cushion_C
+    400010: Cushion_Left
+    400012: Cushion_Right
+    400014: Feet
+    400016: Front
+    400018: Seat_Cushion_Left
+    400020: Seat_Cushion_Right
+    400022: //RootNode
+    2300000: Arms
+    2300002: Back
+    2300004: Cushion_A
+    2300006: Cushion_B
+    2300008: Cushion_C
+    2300010: Cushion_Left
+    2300012: Cushion_Right
+    2300014: Feet
+    2300016: Front
+    2300018: Seat_Cushion_Left
+    2300020: Seat_Cushion_Right
+    3300000: Arms
+    3300002: Back
+    3300004: Cushion_A
+    3300006: Cushion_B
+    3300008: Cushion_C
+    3300010: Cushion_Left
+    3300012: Cushion_Right
+    3300014: Feet
+    3300016: Front
+    3300018: Seat_Cushion_Left
+    3300020: Seat_Cushion_Right
+    4300000: Front
+    4300002: Cushion_Right
+    4300004: Cushion_Left
+    4300006: Feet
+    4300008: Arms
+    4300010: Back
+    4300012: Cushion_A
+    4300014: Cushion_B
+    4300016: Cushion_C
+    4300018: Seat_Cushion_Left
+    4300020: Seat_Cushion_Right
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

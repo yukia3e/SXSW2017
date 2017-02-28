@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: 7b1d5ab8d3faa1343bcfb39810644075
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Chair_01
+    100002: Chair_01 1
+    100004: Chair_02
+    100006: Chair_02 1
+    100008: Chair_03
+    100010: Chair_03 1
+    100012: Chair_04
+    100014: Chair_04 1
+    100016: Chair_05
+    100018: Chair_05 1
+    100020: Chair_06
+    100022: Chair_06 1
+    100024: //RootNode
+    100026: Cushion_01
+    100028: Cushion_02
+    100030: Cushion_03
+    100032: Cushion_04
+    100034: Cushion_05
+    100036: Cushion_06
+    400000: Chair_01
+    400002: Chair_01 1
+    400004: Chair_02
+    400006: Chair_02 1
+    400008: Chair_03
+    400010: Chair_03 1
+    400012: Chair_04
+    400014: Chair_04 1
+    400016: Chair_05
+    400018: Chair_05 1
+    400020: Chair_06
+    400022: Chair_06 1
+    400024: //RootNode
+    400026: Cushion_01
+    400028: Cushion_02
+    400030: Cushion_03
+    400032: Cushion_04
+    400034: Cushion_05
+    400036: Cushion_06
+    2300000: Chair_01 1
+    2300002: Chair_02 1
+    2300004: Chair_03 1
+    2300006: Chair_04 1
+    2300008: Chair_05 1
+    2300010: Chair_06 1
+    2300012: Cushion_01
+    2300014: Cushion_02
+    2300016: Cushion_03
+    2300018: Cushion_04
+    2300020: Cushion_05
+    2300022: Cushion_06
+    3300000: Chair_01 1
+    3300002: Chair_02 1
+    3300004: Chair_03 1
+    3300006: Chair_04 1
+    3300008: Chair_05 1
+    3300010: Chair_06 1
+    3300012: Cushion_01
+    3300014: Cushion_02
+    3300016: Cushion_03
+    3300018: Cushion_04
+    3300020: Cushion_05
+    3300022: Cushion_06
+    4300000: Cushion_01
+    4300002: Chair_01
+    4300004: Cushion_02
+    4300006: Chair_02
+    4300008: Cushion_03
+    4300010: Chair_03
+    4300012: Chair_04
+    4300014: Cushion_04
+    4300016: Cushion_05
+    4300018: Chair_05
+    4300020: Chair_06
+    4300022: Cushion_06
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
