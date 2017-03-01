@@ -19,20 +19,17 @@ namespace Bakery.SXSW
 		GameObject _sensorUpdate;
 
 		[SerializeField]
-		Text _infoCanvas;
-
-		[SerializeField]
-		ScrollRect _scrollRect;
+		GameObject _fpsCanvasUpdater;
 		#endregion
 
 
 
 		#region private properties
-		private string header;
-		private string time;
-		private TextAsset csvFile;
-		private List<string[]> csvDatas = new List<string[]>();
-		private int lineCount = 0;
+		private string _header;
+		private string _time;
+		private TextAsset _csvFile;
+		private List<string[]> _csvDatas = new List<string[]>();
+		private int _lineCount = 0;
 		#endregion
 
 		#region MonoBehaviour functions
@@ -50,31 +47,24 @@ namespace Bakery.SXSW
 		private void onTimer() {
 			bangUpdateAnimation ();
 
-			time = null;
+			_time = null;
 			// for SXSW
-			time = System.DateTime.Now.ToString("HHmm");
+			_time = System.DateTime.Now.ToString("HHmm");
 			if (System.DateTime.Now.Second < 30) {
-				time += "00";
+				_time += "00";
 			} else {
-				time += "30";
+				_time += "30";
 			}
-
-			_infoCanvas.text = time + " update start.\n";
-
-			_scrollRect.verticalNormalizedPosition = 0f;
-
-			ReadFile (time);
+				
+			readFile (_time);
 
 			int sensorNo = 0;
 			foreach (GameObject sensor in _sensors) {
-				sensor.GetComponent<SensorController> ().updateSensor (csvDatas [sensorNo]);
-				drawSensorData (sensorNo + 1, csvDatas [sensorNo]);
-				sensorNo++;
-			}
+				sensor.GetComponent<SensorController> ().updateSensor (_csvDatas [sensorNo]);
+				sensorNo += 1;
+			};
 
-			_infoCanvas.text += time + " update end.\n";
-
-			_scrollRect.verticalNormalizedPosition = 0f;
+			drawSensorData ();
 
 		}
 
@@ -83,11 +73,11 @@ namespace Bakery.SXSW
 			bang.Bang ();
 		}
 
-		private void ReadFile(string time = null){
-			csvFile = new TextAsset();
-			csvDatas = new List<string[]>();
+		private void readFile(string time = null){
+			_csvFile = new TextAsset();
+			_csvDatas = new List<string[]>();
 
-			header = "sensorData_";
+			_header = "sensorData_";
 
 			// for Test
 			if (System.DateTime.Now.Second < 30) {
@@ -97,34 +87,51 @@ namespace Bakery.SXSW
 			}
 
 
-			csvFile = Resources.Load("CSV/" + header + time) as TextAsset;
-			StringReader reader = new StringReader(csvFile.text);
+			_csvFile = Resources.Load("CSV/" + _header + time) as TextAsset;
+			StringReader reader = new StringReader(_csvFile.text);
 
 			while(reader.Peek() > -1) {
 				string line = reader.ReadLine();
-				csvDatas.Add(line.Split(','));
-				lineCount++;
+				_csvDatas.Add(line.Split(','));
+				_lineCount++;
 			}
 		}
 
-		private void drawSensorData (int sensorNo, string[] datas) {
-			string sensorData = "{\n" +
-				"    \"SensorNo\": \"" + sensorNo + "\"\n" +
-				"    \"Values\": [\n" +
-				"      {\n" +
-				"        \"Temp\": \"" + datas [SensorConfig.ROW_NUM_TEMP] + "\"\n" +
-				"        \"Humidity\": \"" + datas [SensorConfig.ROW_NUM_HUM] + "\"\n" +
-				"        \"lx\": \"" + datas [SensorConfig.ROW_NUM_LX] + "\"\n" +
-				"        \"UV\": \"" + datas [SensorConfig.ROW_NUM_UV] + "\"\n" +
-				"        \"dB\": \"" + datas [SensorConfig.ROW_NUM_DB] + "\"\n" +
-				"        \"Confort Index\": \"" + datas [SensorConfig.ROW_NUM_UNCOMFORT] + "\"\n" +
-				"        \"HeatStroke Index\": \"" + datas [SensorConfig.ROW_NUM_HEATSTROKE] + "\"\n" +
-				"      }\n" +
-				"    ]\n" +
-				"}\n";
-			_infoCanvas.text += sensorData;
+		private void drawSensorData () {
 
-			_scrollRect.verticalNormalizedPosition = 0f;
+			List<string> sensorData = new List<string>();
+			sensorData.Add("Update sensor data (" + _time.Substring(0,2) + ":" + _time.Substring(2,2) + ":" + _time.Substring(4,2) + ") - start.\n");
+
+			int sensorNo = 0;
+
+			foreach (GameObject sensor in _sensors) {
+				sensorData.Add ("{\n");
+				sensorData.Add ("    \"SensorNo\": \"" + (sensorNo + 1) + "\"\n");
+				sensorData.Add ("    \"Values\": [\n");
+				sensorData.Add ("      {\n");
+				sensorData.Add ("        \"Temp\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_TEMP] + "\"\n");
+				sensorData.Add ("        \"Humidity\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_HUM] + "\"\n");
+				sensorData.Add ("        \"lx\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_LX] + "\"\n");
+				sensorData.Add ("        \"UV\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_UV] + "\"\n");
+				sensorData.Add ("        \"dB\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_DB] + "\"\n");
+				sensorData.Add ("        \"Confort Index\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_UNCOMFORT] + "\"\n");
+				sensorData.Add ("        \"HeatStroke Index\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_HEATSTROKE] + "\"\n");
+				sensorData.Add ("      }\n");
+				sensorData.Add ("    ]\n");
+				sensorData.Add ("}\n");
+
+				sensorNo++;
+			}
+
+			sensorData.Add ("Update sensor data (" + _time.Substring(0,2) + ":" + _time.Substring(2,2) + ":" + _time.Substring(4,2) + ") - end.\n");
+
+			_fpsCanvasUpdater.GetComponent<FPSCanvasUpdater> ().lines = sensorData;
+
+			ExecuteEvents.Execute<FPSCanvasUpdaterReceiver>(
+				target: _fpsCanvasUpdater, 
+				eventData: null, 
+				functor: (reciever, eventData) => reciever.OnRecieve()
+			); 
 		}
 		#endregion
 	}
