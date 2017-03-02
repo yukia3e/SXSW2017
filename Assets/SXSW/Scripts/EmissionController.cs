@@ -30,8 +30,9 @@ namespace Bakery.SXSW
 
 			int effectCount = _activeEffects.Count;
 			if (effectCount == 0) {
+//				_playground.gameObject.SetActive (false);
+				_playground.enabled = false;
 				_activeEffects.Clear ();
-				_playground.gameObject.SetActive (false);
 			} else {
 				coroutine = StartCoroutine (loop (effectCount));
 			}
@@ -39,14 +40,28 @@ namespace Bakery.SXSW
 
 		private IEnumerator loop(int effectCount) {
 			isRunning = true;
-			_playground.gameObject.SetActive (true);
+
+//			_playground.gameObject.SetActive (true);
+			_playground.enabled = true;
+
 			int counta = 0;
-			while (true) {
+			if (effectCount == 1) {
+				_playground.IsReady ();
+				yield return new WaitForSeconds (1f);
 				_playground.Load (_activeEffects [counta]);
-				yield return new WaitForSeconds (5f);
-				counta++;
-				if (counta == effectCount) {
-					counta = 0;
+				while (true) {
+					yield return new WaitForSeconds (5f);
+				}
+			} else {
+				while (true) {
+					_playground.IsReady ();
+					yield return new WaitForSeconds (1f);
+					_playground.Load (_activeEffects [counta]);
+					yield return new WaitForSeconds (5f);
+					counta++;
+					if (counta == effectCount) {
+						counta = 0;
+					}
 				}
 			}
 		}
