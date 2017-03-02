@@ -31,7 +31,7 @@ namespace Bakery.SXSW
 			foreach (string line in _lines) {
 				_infoCanvas.text += line;
 				_scrollRect.verticalNormalizedPosition = 0f;
-				yield return new WaitForSeconds (0.005f);
+				yield return new WaitForSeconds (0.0001f);
 			}
 		}
 		#endregion

@@ -41,7 +41,6 @@ namespace Bakery.SXSW
 		private IEnumerator loop(int effectCount) {
 			isRunning = true;
 			_playground.gameObject.SetActive (true);
-
 			int counta = 0;
 			while (true) {
 				_playground.Load (_activeEffects [counta]);
