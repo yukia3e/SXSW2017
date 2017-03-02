@@ -28,6 +28,7 @@ namespace Bakery.SXSW
 		}
 
 		private IEnumerator loop() {
+			_infoCanvas.text = "";
 			foreach (string line in _lines) {
 				_infoCanvas.text += line;
 				_scrollRect.verticalNormalizedPosition = 0f;
