@@ -10,6 +10,9 @@ namespace Bakery.SXSW
 
 		#region Editable properties
 		[SerializeField]
+		Text _category;
+
+		[SerializeField]
 		Image _uncomfortImage;
 
 		[SerializeField]
@@ -107,7 +110,6 @@ namespace Bakery.SXSW
 				virusIdx += 1;
 			}
 
-			Debug.Log (virusIdx.ToString ());
 			_virusAlert = "";
 			if (virusIdx == SensorConfig.KBN_VIRUS_CAUTION) {
 				_virusAlert = "MID";
@@ -154,6 +156,16 @@ namespace Bakery.SXSW
 		}
 
 		private void updateInfoCanvas () {
+			if (_activeEffects.ContainsValue (SensorConfig.KBN_WARNING)) {
+				_category.text = SensorConfig.TXT_CATEGORY_WARNING;
+			} else if (_activeEffects.ContainsValue (SensorConfig.KBN_CAUTION)) {
+				_category.text = SensorConfig.TXT_CATEGORY_CAUTION;
+			} else if (_activeEffects.ContainsValue (SensorConfig.KBN_ATTENTION)) {
+				_category.text = SensorConfig.TXT_CATEGORY_ATTENTION;
+			} else {
+				_category.text = SensorConfig.TXT_CATEGORY_INFORMATION;
+			}
+
 			_uncomfortText.text = _unconfortValue.ToString ();
 			_heatText.text = _heatstrokeValue.ToString ();
 			_virusText.text = _virusAlert;

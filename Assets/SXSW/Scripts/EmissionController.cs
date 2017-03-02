@@ -23,7 +23,6 @@ namespace Bakery.SXSW
 
 		#region MonoBehaviour functions
 		public void OnRecieve() {
-			Debug.Log (gameObject.name);
 			if (isRunning) {
 				StopCoroutine (coroutine);
 				isRunning = false;

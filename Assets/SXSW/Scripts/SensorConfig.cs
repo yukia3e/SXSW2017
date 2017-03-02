@@ -48,6 +48,13 @@ namespace Bakery.SXSW
 		public const string EFFECT_NAME_HEAT = "heatEffect";
 		public const string EFFECT_NAME_VIRUS = "virusEffect";
 		public const string EFFECT_NAME_LOUD = "loudEffect";
+
+		// Category Text
+		public const string TXT_CATEGORY_INFORMATION = "INFORMATION";
+		public const string TXT_CATEGORY_ATTENTION = "ATTENTION!";
+		public const string TXT_CATEGORY_CAUTION = "CAUTION!!";
+		public const string TXT_CATEGORY_WARNING = "WARNING!!!";
+
 		#endregion
 
 		#region MonoBehaviour functions

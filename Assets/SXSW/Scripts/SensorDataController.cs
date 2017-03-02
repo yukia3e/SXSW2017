@@ -25,8 +25,6 @@ namespace Bakery.SXSW
 
 
 		#region private properties
-		private string _header;
-		private string _time;
 		private TextAsset _csvFile;
 		private List<string[]> _csvDatas = new List<string[]>();
 		private int _lineCount = 0;
@@ -47,16 +45,8 @@ namespace Bakery.SXSW
 		private void onTimer() {
 			bangUpdateAnimation ();
 
-			_time = null;
 			// for SXSW
-			_time = System.DateTime.Now.ToString("HHmm");
-			if (System.DateTime.Now.Second < 30) {
-				_time += "00";
-			} else {
-				_time += "30";
-			}
-				
-			readFile (_time);
+			readFile (Random.Range( 0, 10 ).ToString());
 
 			int sensorNo = 0;
 			foreach (GameObject sensor in _sensors) {
@@ -73,23 +63,16 @@ namespace Bakery.SXSW
 			bang.Bang ();
 		}
 
-		private void readFile(string time = null){
+		private void readFile(string footer = null){
+			
+			string csvFileName = "sensorData_" + footer;
+			Debug.Log (csvFileName);
+
 			_csvFile = new TextAsset();
-			_csvDatas = new List<string[]>();
-
-			_header = "sensorData_";
-
-			// for Test
-			if (System.DateTime.Now.Second < 30) {
-				time = "test1";
-			} else {
-				time = "test2";
-			}
-
-
-			_csvFile = Resources.Load("CSV/" + _header + time) as TextAsset;
+			_csvFile = Resources.Load("CSV/" + csvFileName) as TextAsset;
 			StringReader reader = new StringReader(_csvFile.text);
 
+			_csvDatas = new List<string[]>();
 			while(reader.Peek() > -1) {
 				string line = reader.ReadLine();
 				_csvDatas.Add(line.Split(','));
@@ -99,8 +82,15 @@ namespace Bakery.SXSW
 
 		private void drawSensorData () {
 
+			string time = System.DateTime.Now.ToString("HH:mm");
+			if (System.DateTime.Now.Second < 30) {
+				time += ":00";
+			} else {
+				time += ":30";
+			}
+
 			List<string> sensorData = new List<string>();
-			sensorData.Add("Update sensor data (" + _time.Substring(0,2) + ":" + _time.Substring(2,2) + ":" + _time.Substring(4,2) + ") - start.\n");
+			sensorData.Add("Update sensor data (" + time + ") - start.\n");
 
 			int sensorNo = 0;
 
@@ -114,7 +104,7 @@ namespace Bakery.SXSW
 				sensorData.Add ("        \"lx\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_LX] + "\"\n");
 				sensorData.Add ("        \"UV\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_UV] + "\"\n");
 				sensorData.Add ("        \"dB\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_DB] + "\"\n");
-				sensorData.Add ("        \"Confort Index\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_UNCOMFORT] + "\"\n");
+				sensorData.Add ("        \"Uncomfort Index\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_UNCOMFORT] + "\"\n");
 				sensorData.Add ("        \"HeatStroke Index\": \"" + _csvDatas [sensorNo] [SensorConfig.ROW_NUM_HEATSTROKE] + "\"\n");
 				sensorData.Add ("      }\n");
 				sensorData.Add ("    ]\n");
@@ -123,7 +113,7 @@ namespace Bakery.SXSW
 				sensorNo++;
 			}
 
-			sensorData.Add ("Update sensor data (" + _time.Substring(0,2) + ":" + _time.Substring(2,2) + ":" + _time.Substring(4,2) + ") - end.\n");
+			sensorData.Add ("Update sensor data (" + time + ") - end.\n");
 
 			_fpsCanvasUpdater.GetComponent<FPSCanvasUpdater> ().lines = sensorData;
 
