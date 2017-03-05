@@ -62,3 +62,4 @@
 /Users/yukiabe/Unity/SXSWforLeapMotion/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/yukiabe/Unity/SXSWforLeapMotion/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/yukiabe/Unity/SXSWforLeapMotion/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/yukiabe/Unity/SXSW/Temp/bin/Debug/LeapCSharp.NET3.5.dll

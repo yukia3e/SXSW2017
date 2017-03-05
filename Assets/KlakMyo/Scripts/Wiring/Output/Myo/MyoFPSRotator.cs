@@ -11,13 +11,13 @@ namespace Klak.Wiring
 		Transform  _target;
 
         [SerializeField]
-        float _right = 85.0f;
+        float _right = 45.0f;
 
 		[SerializeField]
-		float _left = 85.0f;
+		float _left = 45.0f;
 
 		[SerializeField]
-		float _rotateSpeed = 1f;
+		float _rotateSpeed = 40f;
 		#endregion
 
 		#region Node I/O
@@ -27,11 +27,11 @@ namespace Klak.Wiring
                 if (!enabled || _target == null) return;
 
 				if (value > _right && value < 180.0f) {
-					_target.transform.Rotate (new Vector3 (0f, _rotateSpeed, 0f));
+					_target.transform.Rotate (new Vector3 (0f, _rotateSpeed * Time.deltaTime, 0f));
 				}
 					
 				if (value >= 180.0f && value < 360.0f - _left) {
-					_target.transform.Rotate (new Vector3 (0f, -_rotateSpeed, 0f));
+					_target.transform.Rotate (new Vector3 (0f, -_rotateSpeed * Time.deltaTime, 0f));
 				}
 					
             }
