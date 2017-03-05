@@ -38,7 +38,7 @@ namespace Klak.Wiring
 		FloatEvent _zEvent = new FloatEvent();
 
 		[SerializeField, Outlet]
-		Vector3Event _outputEvent = new Vector3Event();
+		Vector3Event _outputWithoutYEvent = new Vector3Event();
 
 		#endregion
 
@@ -103,7 +103,7 @@ namespace Klak.Wiring
 			// z軸の回転をoff
 			rot.z = 0.0f;
 
-			_outputEvent.Invoke(rot.eulerAngles);
+			_outputWithoutYEvent.Invoke(rot.eulerAngles);
 
 			_xEvent.Invoke(rot.eulerAngles.x);
 			_yEvent.Invoke(rot.eulerAngles.y);

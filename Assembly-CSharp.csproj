@@ -125,6 +125,7 @@
      <Compile Include="Assets\Klak\Wiring\System\NodeBase.cs" />
      <Compile Include="Assets\Klak\Wiring\System\Patch.cs" />
      <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Input\LeapMotion\LeapMotionGesture.cs" />
+     <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Output\LeapMotion\LeapMotionFPSRotater.cs" />
      <Compile Include="Assets\KlakMyo\Scripts\Wiring\Input\Myo\MyoGesture.cs" />
      <Compile Include="Assets\KlakMyo\Scripts\Wiring\Input\Myo\MyoOrientation.cs" />
      <Compile Include="Assets\KlakMyo\Scripts\Wiring\Output\Myo\MyoFPSRotator.cs" />
