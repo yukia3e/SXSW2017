@@ -60,7 +60,7 @@
      <Compile Include="Assets\Bakery\Scripts\Wiring\FloatSlot.cs" />
      <Compile Include="Assets\Bakery\Scripts\Wiring\FloatVariable.cs" />
      <Compile Include="Assets\Bakery\Scripts\Wiring\HueToColor.cs" />
-     <Compile Include="Assets\Bakery\Scripts\Wiring\Input\ObjectForward.cs" />
+     <Compile Include="Assets\Bakery\Scripts\Wiring\Output\ObjectForward.cs" />
      <Compile Include="Assets\Bakery\Scripts\Wiring\Output\TransformOut2.cs" />
      <Compile Include="Assets\Bakery\Scripts\Wiring\RandomValue.cs" />
      <Compile Include="Assets\Kino\Binary\Binary.cs" />
@@ -125,7 +125,10 @@
      <Compile Include="Assets\Klak\Wiring\System\NodeBase.cs" />
      <Compile Include="Assets\Klak\Wiring\System\Patch.cs" />
      <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Input\LeapMotion\LeapMotionGesture.cs" />
+     <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Input\LeapMotion\LeapMotionHandPosition.cs" />
+     <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Output\LeapMotion\LeapMotionFPSPositionRotater.cs" />
      <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Output\LeapMotion\LeapMotionFPSRotater.cs" />
+     <Compile Include="Assets\KlakLeapMotion\Scripts\Wiring\Output\LeapMotion\LeapMotionObjectForward.cs" />
      <Compile Include="Assets\KlakMyo\Scripts\Wiring\Input\Myo\MyoGesture.cs" />
      <Compile Include="Assets\KlakMyo\Scripts\Wiring\Input\Myo\MyoOrientation.cs" />
      <Compile Include="Assets\KlakMyo\Scripts\Wiring\Output\Myo\MyoFPSRotator.cs" />
@@ -389,6 +392,7 @@
      <Compile Include="Assets\SXSW\Scripts\SensorConfig.cs" />
      <Compile Include="Assets\SXSW\Scripts\SensorController.cs" />
      <Compile Include="Assets\SXSW\Scripts\SensorDataController.cs" />
+     <Compile Include="Assets\SXSW\Scripts\Wiring\Input\MouseWheelInput.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />
@@ -694,6 +698,9 @@
      <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_HardLight.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Desaturate\SFN_Desaturate_REQONLY.shader" />
      <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSky.shader" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -708,6 +715,9 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
