@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SXSWforMouse.unity
+- path: Assets/SXSW.unity
   isLoaded: 1
   isActive: 1
